@@ -1,6 +1,4 @@
-<!-- Please update value in the {}  -->
-
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">Wind d' Bnb</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -37,15 +35,15 @@
 
 ## Overview
 
+@TODO: replace screenshot
 ![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
-
-A challenge provided by devchallenges.io. 
 
 This is to create a small version of Airbnb - Windbnb with given data. It was recomennded that we either use React or Vue. I did this with just plain Javascript.
 
 ### 🔹 Struggles
 Fetching the data with the fetch API. Faced [this](https://stackoverflow.com/questions/45696999/fetch-unexpected-end-of-input) issue.
 
+@TODO: Fill in these experiences
 ### 🔹 Experiences
 TBA
 
@@ -83,6 +81,6 @@ This application/site was created as a submission to a [DevChallenges](https://d
 
 ## Contact
 
-- Website [pamdayne.com](https://{pamdayne.com})
-- GitHub [@pamdayne](https://{github.com/pamdayne})
-- Twitter [@pamdayne](https://{twitter.com/pamdayne})
+- Website [pamdayne.com](https://pamdayne.com)
+- GitHub [@pamdayne](https://github.com/pamdayne)
+- Twitter [@pamdayne](https://twitter.com/pamdayne)

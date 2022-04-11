@@ -11,7 +11,7 @@
 
 		async function fetchLocations() {
 			try {
-				let resp = await fetch(db_url, {
+				let resp = await fetch(db_local, {
 					mode: 'no-cors',
 					headers: {
 						'Content-Type': 'application/json'
@@ -22,7 +22,6 @@
 				console.log(err)
 			}
 		}
-
 		fetchLocations()
 	</script>
 </head>

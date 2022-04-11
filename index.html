@@ -19,10 +19,16 @@
 				})
 				return await resp.json()
 			} catch (err) {
-				console.log(err)
+				console.error(err)
 			}
 		}
-		fetchLocations()
+
+		async function renderList() {
+			let locationsResponse = await fetchLocations()
+			console.log(locationsResponse)
+		}
+
+		renderList()
 	</script>
 </head>
 <body>

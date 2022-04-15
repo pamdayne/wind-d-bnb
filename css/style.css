@@ -1,9 +1,16 @@
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
+  padding: 1rem;
   background-color: #bebebe;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
 body.maxWidth {
+  height: 100%;
   margin: 0 auto;
   max-width: 1200px;
 }
@@ -45,16 +52,33 @@ body.maxWidth {
   bottom: 0;
 }
 
-.details .unit {
+.lists .details .unit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.lists .details .score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: "";
+      -ms-flex-pack: "";
+          justify-content: "";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer {
+  display: block;
+  margin-top: 2rem;
 }
 
 .material-icons {

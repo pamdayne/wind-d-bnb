@@ -1,8 +1,15 @@
+html {
+	height: 100%;
+}
+
 body {
+	min-height: 100%;
+	padding: 1rem;
 	background-color: $color-light;
 	font-family: $font-main;
 
 	&.maxWidth {
+		height: 100%;
 		margin: 0 auto;
 		max-width: 1200px;
 	}
@@ -25,7 +32,6 @@ body {
 		position: relative;
 		margin-bottom: 1rem;
 
-
 		img {
 			display: block;
 			width: 100%;
@@ -34,10 +40,20 @@ body {
 			bottom: 0;
 		}
 	}
+
+	.details {
+		.unit {
+			@include flex(space-between, center)
+		}
+
+		.score {
+			@include flex('', center)
+		}
+	}
 }
 
-.details {
-	.unit {
-		@include flex(flex-start, center);
-	}
+
+footer {
+	display: block;
+	margin-top: 2rem;
 }

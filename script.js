@@ -12,15 +12,9 @@ async function fetchLocations() {
 
 async function renderList() {
 	let places = await fetchLocations()
-	let totalPlaces = places.length
 	let html = ''
 
-	console.log(places)
-	console.log(totalPlaces)
-
-
 	places.forEach(place => {
-		let superHost = 'Super Host'
 
 		html += `<div class="lists-wrapper">
 								<div class="photo">
@@ -44,11 +38,8 @@ async function renderList() {
 									<div class="short-desc">${place.title}</div>
 								</div >
 							</div > `
-
 		document.querySelector('#locations').innerHTML = html
-
 	})
-
 }
 
 renderList()

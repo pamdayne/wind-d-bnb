@@ -15,6 +15,7 @@ async function renderList() {
 	let html = ''
 
 	places.forEach(place => {
+		setCountry(place.country)
 
 		html += `<div class="lists-wrapper">
 								<div class="photo">
@@ -24,22 +25,25 @@ async function renderList() {
 								</div>
 								<div class="details">
 									<div class="unit">
-										<div class="host">${place.superHost != false ? 'Super Host' : ''}</div>
-										<div class="type">${place.type}</div>
+									${place.superHost != false ? '<div class="host"> Super Host</div>' : ''}
+										<div class="type">${place.type}</div >
 										<div class="bed">
-											<span class="total">${place.beds != null ? place.beds : ''}</span>
-											<span class="txt-bed">beds</span>
-										</div>
+										${place.beds != null ? '<span class="total">' + place.beds + ' beds</span > ' : ''}
+										</div >
 										<div class="score">
-											<span class="material-icons">star</span>
-											<span class="rating">${place.rating}</span>
+										<span class="material-icons">star</span>
+										<span class="rating">${place.rating}</span>
 										</div>
-									</div >
+									</div>
 									<div class="short-desc">${place.title}</div>
 								</div >
 							</div > `
 		document.querySelector('#locations').innerHTML = html
 	})
+}
+
+function setCountry(country) {
+	document.querySelector("#country").innerHTML = 'Stays in ' + country
 }
 
 renderList()

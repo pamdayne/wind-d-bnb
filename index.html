@@ -9,8 +9,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 	<script scr="script.js"></script>
 </head>
-<body>
-	<header class="row maxWidth">
+<body class="maxWidth">
+	<header class="row">
 		<div class="col">
 			<div class="logo">
 				<img src="img/logo.png" />
@@ -24,13 +24,14 @@
 						<option value="Singapore">Singapore</option>
 					</select>
 					<input type="text" placeholder="Add guests" />
-					<span class="material-icons">search</span>
+					<button type="submit"><span class="material-icons">search</span></button>
 				</form>
 			</div>
 		</div>
 	</header>
 	<main>
-		<div id="locations" class="lists maxWidth">
+		<h2 id="country">Stays in </h2>
+		<div id="locations" class="lists">
 		</div>
 	</main>
 	<script src="script.js" defer async></script>

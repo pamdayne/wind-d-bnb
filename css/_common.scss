@@ -1,11 +1,32 @@
+html {
+	height: 100%;
+}
+
 body {
+	min-height: 100%;
+	padding: 1rem;
 	background-color: $color-light;
+	font-family: $font-main;
 
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-	.maxWidth {
+	&.maxWidth {
+		height: 100%;
 		margin: 0 auto;
 		max-width: 1200px;
+	}
+}
+
+header {
+	form {
+		background-color: #fff;
+		border-radius: .7rem;
+		@include flex(space-between, center);
+
+		* {
+			height: 3rem;
+			padding: 0;
+			border: 0;
+			margin: .7rem;
+		}
 	}
 }
 
@@ -14,32 +35,54 @@ body {
 }
 
 .lists {
-	gap: 2rem;
 	display: grid;
-	grid-template-columns: repeat(3, 33%);
+	gap: 3%;
+	grid-template-columns: repeat(3, 31%);
 
-	&-wrapper {
+	.photo {
+		overflow: hidden;
 		border-radius: 1rem;
+		max-height: 250px;
+		aspect-ratio: 16 / 10;
+		position: relative;
+		margin-bottom: 1rem;
 
-		.photo {
-			overflow: hidden;
-			padding-bottom: 1rem;
-
-			img {
-				border-radius: 2rem;
-				width: 100%;
-				height: auto;
-
-			}
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+			position: absolute;
+			bottom: 0;
 		}
 	}
 
+	.details {
+		.unit {
+			padding: .3rem 0;
+			margin-bottom: .5rem;
+			@include flex(space-between, center);
 
+			.host {
+				padding: .5rem;
+				text-transform: uppercase;
+				font-size: 80%;
+				border-radius: .8em;
+				border: 1px solid $color-dark;
+			}
+
+			.type, .bed {
+				color: dimgrey;
+			}
+		}
+
+		.score {
+			@include flex('', center)
+		}
+	}
 }
 
-.details {
-	.unit {
-		@include flex(flex-start, center);
-		gap: 10px;
-	}
+
+footer {
+	display: block;
+	margin-top: 2rem;
 }

@@ -15,6 +15,27 @@ body.maxWidth {
   max-width: 1200px;
 }
 
+header form {
+  background-color: #fff;
+  border-radius: .7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header form * {
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  margin: .7rem;
+}
+
 .row {
   display: -webkit-box;
   display: -ms-flexbox;

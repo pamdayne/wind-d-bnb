@@ -15,6 +15,21 @@ body {
 	}
 }
 
+header {
+	form {
+		background-color: #fff;
+		border-radius: .7rem;
+		@include flex(space-between, center);
+
+		* {
+			height: 3rem;
+			padding: 0;
+			border: 0;
+			margin: .7rem;
+		}
+	}
+}
+
 .row {
 	@include flex(space-between, center);
 }

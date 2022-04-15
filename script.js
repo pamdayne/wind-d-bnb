@@ -15,6 +15,7 @@ async function renderList() {
 	let html = ''
 
 	places.forEach(place => {
+		setCountry(place.country)
 
 		html += `<div class="lists-wrapper">
 								<div class="photo">
@@ -40,6 +41,10 @@ async function renderList() {
 							</div > `
 		document.querySelector('#locations').innerHTML = html
 	})
+}
+
+function setCountry(country) {
+	document.querySelector("#country").innerHTML = 'Stays in ' + country
 }
 
 renderList()

@@ -30,10 +30,10 @@ async function renderList() {
 								</div>
 								<div class="details">
 									<div class="unit">
-										<div class="host">${place.superHost ? 'Super Host' : ''}</div>
+										<div class="host">${place.superHost != false ? 'Super Host' : ''}</div>
 										<div class="type">${place.type}</div>
 										<div class="bed">
-											<span class="total">${place.beds}</span>
+											<span class="total">${place.beds != null ? place.beds : ''}</span>
 											<span class="txt-bed">beds</span>
 										</div>
 										<div class="score">

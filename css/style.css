@@ -1,0 +1,142 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  padding: 1rem;
+  background-color: #bebebe;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+body.maxWidth {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+header form {
+  background-color: #fff;
+  border-radius: .7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header form * {
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  margin: .7rem;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lists {
+  display: -ms-grid;
+  display: grid;
+  gap: 3%;
+  -ms-grid-columns: (31%)[3];
+      grid-template-columns: repeat(3, 31%);
+}
+
+.lists .photo {
+  overflow: hidden;
+  border-radius: 1rem;
+  max-height: 250px;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.lists .photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+}
+
+.lists .details .unit {
+  padding: .3rem 0;
+  margin-bottom: .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lists .details .unit .host {
+  padding: .5rem;
+  text-transform: uppercase;
+  font-size: 80%;
+  border-radius: .8em;
+  border: 1px solid #636363;
+}
+
+.lists .details .unit .type, .lists .details .unit .bed {
+  color: dimgrey;
+}
+
+.lists .details .score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: "";
+      -ms-flex-pack: "";
+          justify-content: "";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer {
+  display: block;
+  margin-top: 2rem;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
+}
+/*# sourceMappingURL=style.css.map */

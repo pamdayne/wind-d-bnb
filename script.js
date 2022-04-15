@@ -1,5 +1,5 @@
 const db_local = 'stays.json'
-const db_url = 'https://raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/db.json'
+const db_url = 'https://raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json'
 
 async function fetchLocations() {
 	try {

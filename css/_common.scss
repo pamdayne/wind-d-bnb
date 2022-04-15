@@ -1,0 +1,45 @@
+body {
+	background-color: $color-light;
+
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+	.maxWidth {
+		margin: 0 auto;
+		max-width: 1200px;
+	}
+}
+
+.row {
+	@include flex(space-between, center);
+}
+
+.lists {
+	gap: 2rem;
+	display: grid;
+	grid-template-columns: repeat(3, 33%);
+
+	&-wrapper {
+		border-radius: 1rem;
+
+		.photo {
+			overflow: hidden;
+			padding-bottom: 1rem;
+
+			img {
+				border-radius: 2rem;
+				width: 100%;
+				height: auto;
+
+			}
+		}
+	}
+
+
+}
+
+.details {
+	.unit {
+		@include flex(flex-start, center);
+		gap: 10px;
+	}
+}

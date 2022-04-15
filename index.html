@@ -5,33 +5,53 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Wind D Bnb</title>
-	<script>
-		const db_local = 'stays.json'
-		const db_url = 'https://my-json-server.typicode.com/pamdayne/wind-d-bnb/'
-
-		async function fetchLocations() {
-			try {
-				let resp = await fetch(db_local, {
-					mode: 'no-cors',
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-				return await resp.json()
-			} catch (err) {
-				console.error(err)
-			}
-		}
-
-		async function renderList() {
-			let locationsResponse = await fetchLocations()
-			console.log(locationsResponse)
-		}
-
-		renderList()
-	</script>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<script scr="script.js"></script>
 </head>
 <body>
-	<div class="location"></div>
+	<header class="row">
+		<div class="col">
+			<div class="logo">
+				<img src="img/logo.png" />
+			</div>
+		</div>
+		<div class="col">
+			<div class="options">
+				<form>
+					<select>
+						<option value="Helsinki, Finland">Helsinki, Finland</option>
+						<option value="Singapore">Singapore</option>
+					</select>
+					<input type="text" placeholder="Add guests" />
+					<span class="material-icons">search</span>
+				</form>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div id="locations" class="lists">
+			<div class="list-wrapper">
+				<div class="photo">
+					<img src="" alt="" />
+				</div>
+				<div class="details">
+					<div class="unit">
+						<div class="host">Super host</div>
+						<div class="type">Entire Apt</div>
+						<div class="bed">
+							<span class="total">2</span>
+							<span class="txt-bed">beds</span>
+						</div>
+						<div class="score">
+							<span class="material-icons">star</span>
+							<span class="rating">4</span>
+						</div>
+					</div>
+					<div class="short-desc">Stylish apartment in center of the city</div>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 </html>

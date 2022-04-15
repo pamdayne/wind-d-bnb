@@ -1,9 +1,9 @@
 body {
   background-color: #bebebe;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
-body .maxWidth {
+body.maxWidth {
   margin: 0 auto;
   max-width: 1200px;
 }
@@ -21,26 +21,28 @@ body .maxWidth {
 }
 
 .lists {
-  gap: 2rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (33%)[3];
-      grid-template-columns: repeat(3, 33%);
+  gap: 3%;
+  -ms-grid-columns: (31%)[3];
+      grid-template-columns: repeat(3, 31%);
 }
 
-.lists-wrapper {
-  border-radius: 1rem;
-}
-
-.lists-wrapper .photo {
+.lists .photo {
   overflow: hidden;
-  padding-bottom: 1rem;
+  border-radius: 1rem;
+  max-height: 250px;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  margin-bottom: 1rem;
 }
 
-.lists-wrapper .photo img {
-  border-radius: 2rem;
+.lists .photo img {
+  display: block;
   width: 100%;
   height: auto;
+  position: absolute;
+  bottom: 0;
 }
 
 .details .unit {
@@ -53,7 +55,6 @@ body .maxWidth {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 10px;
 }
 
 .material-icons {

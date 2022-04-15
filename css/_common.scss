@@ -1,9 +1,8 @@
 body {
 	background-color: $color-light;
+	font-family: $font-main;
 
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-	.maxWidth {
+	&.maxWidth {
 		margin: 0 auto;
 		max-width: 1200px;
 	}
@@ -14,32 +13,31 @@ body {
 }
 
 .lists {
-	gap: 2rem;
 	display: grid;
-	grid-template-columns: repeat(3, 33%);
+	gap: 3%;
+	grid-template-columns: repeat(3, 31%);
 
-	&-wrapper {
+	.photo {
+		overflow: hidden;
 		border-radius: 1rem;
+		max-height: 250px;
+		aspect-ratio: 16 / 10;
+		position: relative;
+		margin-bottom: 1rem;
 
-		.photo {
-			overflow: hidden;
-			padding-bottom: 1rem;
 
-			img {
-				border-radius: 2rem;
-				width: 100%;
-				height: auto;
-
-			}
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+			position: absolute;
+			bottom: 0;
 		}
 	}
-
-
 }
 
 .details {
 	.unit {
 		@include flex(flex-start, center);
-		gap: 10px;
 	}
 }

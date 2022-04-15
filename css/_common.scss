@@ -1,3 +1,30 @@
 body {
 	background-color: $color-dark;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.row {
+	@include flex(space-between, center);
+
+	.col {}
+}
+
+.lists {
+	gap: 10px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+
+	.photos {
+		height: auto;
+		width: 100%;
+		max-width: 395;
+		max-height: 269px;
+	}
+}
+
+.details {
+	.unit {
+		@include flex(flex-start, center);
+		gap: 10px;
+	}
 }

@@ -1,25 +1,40 @@
 body {
-	background-color: $color-dark;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+	background-color: $color-light;
+
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+	.maxWidth {
+		margin: 0 auto;
+		max-width: 1200px;
+	}
 }
 
 .row {
 	@include flex(space-between, center);
-
-	.col {}
 }
 
 .lists {
-	gap: 10px;
+	gap: 2rem;
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: repeat(3, 33%);
 
-	.photos {
-		height: auto;
-		width: 100%;
-		max-width: 395;
-		max-height: 269px;
+	&-wrapper {
+		border-radius: 1rem;
+
+		.photo {
+			overflow: hidden;
+			padding-bottom: 1rem;
+
+			img {
+				border-radius: 2rem;
+				width: 100%;
+				height: auto;
+
+			}
+		}
 	}
+
+
 }
 
 .details {

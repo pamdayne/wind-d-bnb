@@ -1,6 +1,11 @@
 body {
-  background-color: #636363;
+  background-color: #bebebe;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body .maxWidth {
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .row {
@@ -16,18 +21,26 @@ body {
 }
 
 .lists {
-  gap: 10px;
+  gap: 2rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
 }
 
-.lists .photos {
-  height: auto;
+.lists-wrapper {
+  border-radius: 1rem;
+}
+
+.lists-wrapper .photo {
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+.lists-wrapper .photo img {
+  border-radius: 2rem;
   width: 100%;
-  max-width: 395;
-  max-height: 269px;
+  height: auto;
 }
 
 .details .unit {

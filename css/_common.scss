@@ -43,7 +43,21 @@ body {
 
 	.details {
 		.unit {
-			@include flex(space-between, center)
+			padding: .3rem 0;
+			margin-bottom: .5rem;
+			@include flex(space-between, center);
+
+			.host {
+				padding: .5rem;
+				text-transform: uppercase;
+				font-size: 80%;
+				border-radius: .8em;
+				border: 1px solid $color-dark;
+			}
+
+			.type, .bed {
+				color: dimgrey;
+			}
 		}
 
 		.score {

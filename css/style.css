@@ -53,6 +53,8 @@ body.maxWidth {
 }
 
 .lists .details .unit {
+  padding: .3rem 0;
+  margin-bottom: .5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,6 +64,18 @@ body.maxWidth {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.lists .details .unit .host {
+  padding: .5rem;
+  text-transform: uppercase;
+  font-size: 80%;
+  border-radius: .8em;
+  border: 1px solid #636363;
+}
+
+.lists .details .unit .type, .lists .details .unit .bed {
+  color: dimgrey;
 }
 
 .lists .details .score {

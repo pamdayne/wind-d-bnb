@@ -5,9 +5,33 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Wind D Bnb</title>
+	<script>
+		const db_local = 'stays.json'
+		const db_url = 'https://my-json-server.typicode.com/pamdayne/wind-d-bnb/'
+
+		async function fetchLocations() {
+			try {
+				let resp = await fetch(db_url, {
+					mode: 'no-cors',
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				return await resp.json()
+			} catch (err) {
+				console.error(err)
+			}
+		}
+
+		async function renderList() {
+			let locationsResponse = await fetchLocations()
+			console.log(locationsResponse)
+		}
+
+		renderList()
+	</script>
 	<link href="css/style.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-	<script scr="script.js"></script>
 </head>
 <body class="maxWidth">
 	<header class="row">
@@ -34,6 +58,5 @@
 		<div id="locations" class="lists">
 		</div>
 	</main>
-	<script src="script.js" defer async></script>
 </body>
 </html>

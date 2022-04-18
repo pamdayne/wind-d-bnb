@@ -5,27 +5,32 @@ html {
 body {
 	min-height: 100%;
 	padding: 1rem;
+
 	background-color: $color-light;
+
 	font-family: $font-main;
 
+	// IMPROVE: Maybe don't use Camel case for class name
 	&.maxWidth {
+		max-width: 1200px;
 		height: 100%;
 		margin: 0 auto;
-		max-width: 1200px;
 	}
 }
 
 header {
 	form {
-		background-color: #fff;
 		border-radius: .7rem;
+		background-color: #fff;
+
 		@include flex(space-between, center);
 
 		* {
 			height: 3rem;
-			padding: 0;
-			border: 0;
 			margin: .7rem;
+			padding: 0;
+
+			border: 0;
 		}
 	}
 }
@@ -36,40 +41,58 @@ header {
 
 .lists {
 	display: grid;
+
 	gap: 3%;
 	grid-template-columns: repeat(3, 31%);
 
 	.photo {
-		overflow: hidden;
-		border-radius: 1rem;
-		max-height: 250px;
-		aspect-ratio: 16 / 10;
 		position: relative;
+
+		overflow: hidden;
+
+		max-height: 250px;
 		margin-bottom: 1rem;
 
+		border-radius: 1rem;
+
+		aspect-ratio: 16 / 10;
+
 		img {
-			display: block;
-			width: 100%;
-			height: auto;
 			position: absolute;
 			bottom: 0;
+
+			display: block;
+
+			width: 100%;
+			height: auto;
 		}
 	}
 
 	.details {
 		.unit {
-			padding: .3rem 0;
 			margin-bottom: .5rem;
+			padding: .3rem 0;
+
 			@include flex(space-between, center);
 
 			.host {
 				padding: .5rem;
+
 				text-transform: uppercase;
-				font-size: 80%;
-				border-radius: .8em;
+
 				border: 1px solid $color-dark;
+				border-radius: .8em;
+
+				font-size: 80%;
 			}
 
+			// IMPROVE: https://github.com/chris-pearce/css-guidelines#heavy_check_mark-good
+			/*
+				.type,
+				.bed {
+					...
+				}
+			*/
 			.type, .bed {
 				color: dimgrey;
 			}
@@ -84,5 +107,6 @@ header {
 
 footer {
 	display: block;
+
 	margin-top: 2rem;
 }

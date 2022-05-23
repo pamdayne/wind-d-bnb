@@ -20,6 +20,46 @@ async function renderList() {
     // IMPROVE: this will get called every iteration
     // setCountry(place.country);
 
+    // Create image element
+    let imgDiv = document.createElement('div')
+    let img = document.createElement('img')
+    img.src = place.photo
+    img.alt = place.title
+    imgDiv.classList.add('photo')
+    imgDiv.appendChild(img)
+
+    // Create DIV elements for the details portion
+    let detailsDiv = document.createElement('div')
+    let unitDiv = document.createElement('div')
+    let typeDiv = document.createElement('div')
+    let bedDiv = document.createElement('div')
+
+    // Adds text for the type of unit
+    typeDiv.textContent = place.type
+
+    // Checks if data exist - if yes, add total bed into unit details
+    if (place.beds != null) {
+      let bedSpan = document.createElement('span')
+      bedSpan.classList.add = 'total'
+      bedSpan.textContent = place.beds + ' beds'
+      bedDiv.appendChild(bedSpan)
+    }
+
+    // Appends childs under Unit div and add class 'unit'
+    unitDiv.appendChild(typeDiv)
+    unitDiv.appendChild(bedDiv)
+    unitDiv.classList.add('unit')
+
+    // Appends the children of Details
+    detailsDiv.append(unitDiv)
+    detailsDiv.classList.add('details')
+
+    // Main item div
+    let mainDiv = document.createElement('div')
+    mainDiv.classList.add('list-wrapper')
+    mainDiv.appendChild(imgDiv)
+    mainDiv.appendChild(detailsDiv)
+
     // IMPROVE: try to use:
     // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/append

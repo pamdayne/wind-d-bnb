@@ -33,12 +33,20 @@ async function renderList() {
     let unitDiv = document.createElement('div')
     let typeDiv = document.createElement('div')
     let bedDiv = document.createElement('div')
+    let hostDiv = document.createElement('div')
 
-    // Adds text for the type of unit
+    // SuperHost: Checks if data exist, adds superHost label
+    if (place.superHost) {
+      hostDiv.classList.add = 'host'
+      hostDiv.textContent = 'SUPER HOST'
+      unitDiv.appendChild(hostDiv)
+    }
+
+    // Unit Type
     typeDiv.textContent = place.type
 
     // Checks if data exist - if yes, add total bed into unit details
-    if (place.beds != null) {
+    if (place.beds) {
       let bedSpan = document.createElement('span')
       bedSpan.classList.add = 'total'
       bedSpan.textContent = place.beds + ' beds'

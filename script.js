@@ -20,53 +20,65 @@ async function renderList() {
     // IMPROVE: this will get called every iteration
     // setCountry(place.country);
 
-    // Create image element
+    let unitDiv = document.createElement('div')
+    unitDiv.classList.add('unit')
+
     let imgDiv = document.createElement('div')
+    imgDiv.classList.add('photo')
+
+    let hostDiv = document.createElement('div')
+    hostDiv.classList.add('host')
+
+    let typeDiv = document.createElement('div')
+    typeDiv.classList.add('type')
+
+    let bedDiv = document.createElement('div')
+    bedDiv.classList.add('total')
+
+    let rateDiv = document.createElement('div')
+    rateDiv.classList.add('rating')
+
+    let descDiv = document.createElement('div')
+    descDiv.classList.add('short-desc')
+
+    let mainDiv = document.createElement('div')
+    mainDiv.classList.add('list-wrapper')
+
+    let detailsDiv = document.createElement('div')
+    detailsDiv.classList.add('details')
+
+    // Unit's Image: Creates image element
     let img = document.createElement('img')
     img.src = place.photo
     img.alt = place.title
-    imgDiv.classList.add('photo')
     imgDiv.appendChild(img)
 
-    // Create DIV elements for the details portion
-    let detailsDiv = document.createElement('div')
-    let unitDiv = document.createElement('div')
-    let typeDiv = document.createElement('div')
-    let bedDiv = document.createElement('div')
-    let hostDiv = document.createElement('div')
-
-    // SuperHost: Checks if data exist, adds superHost label
+    // Unit's SuperHost: Checks if unit is a super host, adds the label
     if (place.superHost) {
-      hostDiv.classList.add = 'host'
       hostDiv.textContent = 'SUPER HOST'
       unitDiv.appendChild(hostDiv)
     }
 
-    // Unit Type
-    typeDiv.textContent = place.type
+    // Unit type: Creates and sets the Unit type
+    place.type ? typeDiv.textContent = place.type : ''
 
-    // Checks if data exist - if yes, add total bed into unit details
-    if (place.beds) {
-      let bedSpan = document.createElement('span')
-      bedSpan.classList.add = 'total'
-      bedSpan.textContent = place.beds + ' beds'
-      bedDiv.appendChild(bedSpan)
-    }
+    // Unit beds: Checks if data exist - add total bed into unit details
+    place.beds ? bedDiv.textContent = place.beds : ''
 
-    // Appends childs under Unit div and add class 'unit'
-    unitDiv.appendChild(typeDiv)
-    unitDiv.appendChild(bedDiv)
-    unitDiv.classList.add('unit')
+    // Unit's rate: creates and adds rating
+    place.rating ? rateDiv.textContent = place.rating : ''
 
-    // Appends the children of Details
+    // Unit: Creates and appends childs under Unit div and add class 'unit'
+    unitDiv.append(typeDiv, bedDiv, rateDiv)
+
+    // Unit Details: Creates and appends the children of Details
     detailsDiv.append(unitDiv)
-    detailsDiv.classList.add('details')
 
-    // Main item div
-    let mainDiv = document.createElement('div')
-    mainDiv.classList.add('list-wrapper')
-    mainDiv.appendChild(imgDiv)
-    mainDiv.appendChild(detailsDiv)
+    // Unit Title: Creates the description/title of the unit
+    place.title ?  descDiv.textContent = place.title : ''
+
+    // Item Unit: wrapper
+    mainDiv.append(imgDiv, detailsDiv, descDiv)
 
     // IMPROVE: try to use:
     // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
@@ -91,7 +103,6 @@ async function renderList() {
     //   }
     // 								</div >
     // 								<div class="score">
-    // 								<span class="material-icons">star</span>
     // 								<span class="rating">${place.rating}</span>
     // 								</div>
     // 							</div>

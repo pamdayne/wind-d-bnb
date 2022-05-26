@@ -88,36 +88,6 @@ async function renderList() {
     // Item Unit: wrapper
     mainDiv.append(imgDiv, detailsDiv, descDiv)
 
-    // IMPROVE: try to use:
-    // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
-    // https://developer.mozilla.org/en-US/docs/Web/API/Element/append
-    // https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
-    // html += `<div class="lists-wrapper">
-    // 						<div class="photo">
-    // 							<img
-    // 								src="${place.photo}"
-    // 								alt="${place.title}"
-    // 								loading
-    // 							/>
-    // 						</div>
-    // 						<div class="details">
-    // 							<div class="unit">
-    // 							${places.superHost != false ? '<div class="host"> Super Host</div>' : ""}
-    // 								<div class="type">${place.type}</div >
-    // 								<div class="bed">
-    // 								${place.beds != null
-    //     ? '<span class="total">' + place.beds + " beds</span > "
-    //     : ""
-    //   }
-    // 								</div >
-    // 								<div class="score">
-    // 								<span class="rating">${place.rating}</span>
-    // 								</div>
-    // 							</div>
-    // 							<div class="short-desc">${place.title}</div>
-    // 						</div>
-    // 					</div> `;
-
     // IMPROVE: #locations.innerHTML will get replaced with the html in every iteration
     document.querySelector("#locations").appendChild(mainDiv);
   });

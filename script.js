@@ -66,7 +66,15 @@ async function renderList() {
     place.beds ? bedDiv.textContent = place.beds : ''
 
     // Unit's rate: creates and adds rating
-    place.rating ? rateDiv.textContent = place.rating : ''
+    if(place.rating){
+      rateDiv.textContent = place.rating
+
+      // Add star icon
+      let ratingIcon = document.createElement('span')
+      ratingIcon.classList.add('material-icons')
+      ratingIcon.textContent = 'star'
+      rateDiv.insertBefore(ratingIcon, rateDiv.firstChild)
+    }
 
     // Unit: Creates and appends childs under Unit div and add class 'unit'
     unitDiv.append(typeDiv, bedDiv, rateDiv)

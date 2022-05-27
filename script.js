@@ -17,9 +17,6 @@ async function renderList() {
   // const { photo, title, superHost, type } = await fetchLocations();
 
   places.forEach((place) => {
-    // IMPROVE: this will get called every iteration
-    // setCountry(place.country);
-
     let unitDiv = document.createElement('div')
     unitDiv.classList.add('unit')
 

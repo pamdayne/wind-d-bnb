@@ -32,16 +32,23 @@
       @include flex(space-between, center);
 
       .host {
-        padding: .5rem;
+        padding: .2rem .5rem;
         text-transform: uppercase;
         border: 1px solid $color-dark;
         border-radius: .8em;
         font-size: 80%;
       }
 
-      .type,
-      .bed {
+      .type {
+        display: inline-flex;
         color: $color-dark;
+      }
+
+      .rating {
+        .material-icons {
+          vertical-align: bottom;
+          color: salmon;
+        }
       }
     }
 

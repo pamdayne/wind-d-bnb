@@ -137,16 +137,23 @@ footer {
 }
 
 .lists .details .unit .host {
-  padding: .5rem;
+  padding: .2rem .5rem;
   text-transform: uppercase;
   border: 1px solid #636363;
   border-radius: .8em;
   font-size: 80%;
 }
 
-.lists .details .unit .type,
-.lists .details .unit .bed {
+.lists .details .unit .type {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   color: #636363;
+}
+
+.lists .details .unit .rating .material-icons {
+  vertical-align: bottom;
+  color: salmon;
 }
 
 .lists .details .score {

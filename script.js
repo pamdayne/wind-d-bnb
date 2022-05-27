@@ -23,14 +23,15 @@ async function renderList() {
 
     // Unit's details
     hostDiv = superHost ? setContentElement('div', 'SUPER HOST', 'host') : ''
+    bedDiv = beds ? setContentElement('div', '.' + beds + ' beds', 'bed') : ''
     typeDiv = setContentElement('div', type, 'type')
-    bedDiv = beds ? setContentElement('div', beds, 'bed') : ''
+    typeDiv.append(bedDiv)
     rateDiv = setContentElement('div', rating, 'rating')
     rateDiv.insertBefore(setIconElement('star'), rateDiv.firstChild)
 
     // Wraps the details
     unitDiv = setContentElement('div', '', 'unit')
-    unitDiv.append(hostDiv, typeDiv, bedDiv, rateDiv)
+    unitDiv.append(hostDiv, typeDiv, rateDiv)
 
     // Add unit title
     descDiv = setContentElement('div', title, 'short-desc')

@@ -43,9 +43,6 @@ body.max-width {
 }
 
 header form {
-  width: 100%;
-  border-radius: .7rem;
-  background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,6 +52,20 @@ header form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  border-radius: .7rem;
+  background-color: #fff;
+  padding-block: 1rem;
+  margin-block: 1rem;
+  -webkit-box-shadow: 0 0.1rem 0.5rem #ededed;
+          box-shadow: 0 0.1rem 0.5rem #ededed;
+}
+
+@media screen and (min-width: 768px) {
+  header form {
+    padding-block: 0;
+    margin-block: 1rem;
+  }
 }
 
 header form select,
@@ -69,6 +80,10 @@ header form input {
     height: 3rem;
     margin: .7rem;
   }
+}
+
+header form input[type='submit'] {
+  background-color: transparent;
 }
 
 footer {

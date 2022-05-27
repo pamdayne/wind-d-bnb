@@ -12,8 +12,12 @@ async function fetchLocations() {
     })
 }
 
+  // HOW CAN WE WRITE THIS BETTER? :D Anymore I can improve on?
 async function renderList() {
   let places = await fetchLocations()
+
+  // HOW CAN WE WRITE THIS BETTER?
+  // Is this the better way of doing it?
   let featImg, typeDiv, hostDiv, rateDiv, bedDiv, descDiv, unitDiv, detailsDiv, mainDiv = {}
 
   places.forEach(location => {
@@ -78,5 +82,4 @@ function setIconElement(icon){
   return iconElement
 }
 
-// IMPROVE: try to use https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
 window.addEventListener('load', renderList)

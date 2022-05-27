@@ -105,6 +105,10 @@ footer {
   }
 }
 
+.list-wrapper {
+  margin-bottom: 2rem;
+}
+
 @media screen and (min-width: 768px) {
   .list-wrapper {
     width: calc(calc(100% / 3) - 2rem);

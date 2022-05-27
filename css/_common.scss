@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: $color-light;
+  background-color: $color-lighter;
   font-family: $font-main;
   min-height: 100%;
   padding: 1rem;
@@ -15,10 +15,23 @@ body {
   }
 }
 
+.row {
+  display: block;
+
+  @include breakpoint(md) {
+    @include flex(space-between, center);
+  }
+
+  .col {
+    display: block;
+  }
+
+}
+
 header {
   form {
     border-radius: .7rem;
-    background-color: #fff;
+    background-color: $color-white;
 
     @include flex(space-between, center);
 
@@ -31,14 +44,14 @@ header {
   }
 }
 
-.row {
-  @include flex(space-between, center);
-}
-
 .lists {
-  display: grid;
-  gap: 3%;
-  grid-template-columns: repeat(3, 31%);
+  display: block;
+
+  @include breakpoint(md) {
+    display: grid;
+    grid-template-columns: repeat(3, 31%);
+    gap: 3%;
+  }
 
   .photo {
     position: relative;
@@ -74,7 +87,7 @@ header {
 
       .type,
       .bed {
-        color: dimgrey;
+        color: $color-dark;
       }
     }
 

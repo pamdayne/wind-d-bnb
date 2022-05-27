@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #bebebe;
+  background-color: #ededed;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   min-height: 100%;
   padding: 1rem;
@@ -13,6 +13,28 @@ body.max-width {
   max-width: 1200px;
   height: 100%;
   margin: 0 auto;
+}
+
+.row {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.row .col {
+  display: block;
 }
 
 header form {
@@ -36,24 +58,18 @@ header form * {
   border: 0;
 }
 
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.lists {
+  display: block;
 }
 
-.lists {
-  display: -ms-grid;
-  display: grid;
-  gap: 3%;
-  -ms-grid-columns: (31%)[3];
-      grid-template-columns: repeat(3, 31%);
+@media screen and (min-width: 768px) {
+  .lists {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (31%)[3];
+        grid-template-columns: repeat(3, 31%);
+    gap: 3%;
+  }
 }
 
 .lists .photo {
@@ -97,7 +113,7 @@ header form * {
 
 .lists .details .unit .type,
 .lists .details .unit .bed {
-  color: dimgrey;
+  color: #636363;
 }
 
 .lists .details .score {

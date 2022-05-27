@@ -1,98 +1,82 @@
-const db_local = "stays.json";
-const db_url =
+const DB_LOCAL = "stays.json";
+const DB_URL =
   "https://raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json";
 
 async function fetchLocations() {
-  try {
-    let resp = await fetch(db_url);
-    return await resp.json();
-  } catch (err) {
-    console.error(err);
-  }
+  return fetch(DB_URL)
+    .then(function(resp){return resp.json()})
+    .then(function(json){
+       return json;
+    }).catch(function(error){
+      console.error(error);
+    })
 }
 
 async function renderList() {
-  let places = await fetchLocations();
-  // IMPROVE: try to destructure the properties
-  // const { photo, title, superHost, type } = await fetchLocations();
+  let places = await fetchLocations()
+  let featImg, typeDiv, hostDiv, rateDiv, bedDiv, descDiv, unitDiv, detailsDiv, mainDiv = {}
 
-  places.forEach((place) => {
-    let unitDiv = document.createElement('div')
-    unitDiv.classList.add('unit')
+  places.forEach(location => {
+    const { photo, title, superHost, type, beds, rating} = location;
 
-    let imgDiv = document.createElement('div')
-    imgDiv.classList.add('photo')
+    // The place's image
+    featImg = setFeaturedImage(photo, title, 'photo')
 
-    let hostDiv = document.createElement('div')
-    hostDiv.classList.add('host')
+    // Unit's details
+    hostDiv = superHost ? setContentElement('div', 'SUPER HOST', 'host') : ''
+    typeDiv = setContentElement('div', type, 'type')
+    bedDiv = beds ? setContentElement('div', beds, 'bed') : ''
+    rateDiv = setContentElement('div', rating, 'rating')
+    rateDiv.insertBefore(setIconElement('star'), rateDiv.firstChild)
 
-    let typeDiv = document.createElement('div')
-    typeDiv.classList.add('type')
+    // Wraps the details
+    unitDiv = setContentElement('div', '', 'unit')
+    unitDiv.append(hostDiv, typeDiv, bedDiv, rateDiv)
 
-    let bedDiv = document.createElement('div')
-    bedDiv.classList.add('total')
+    descDiv = setContentElement('div', title, 'short-desc')
 
-    let rateDiv = document.createElement('div')
-    rateDiv.classList.add('rating')
+    detailsDiv = setContentElement('div', '', 'details')
+    detailsDiv.append(unitDiv, descDiv)
 
-    let descDiv = document.createElement('div')
-    descDiv.classList.add('short-desc')
-
-    let mainDiv = document.createElement('div')
-    mainDiv.classList.add('list-wrapper')
-
-    let detailsDiv = document.createElement('div')
-    detailsDiv.classList.add('details')
-
-    // Unit's Image: Creates image element
-    let img = document.createElement('img')
-    img.src = place.photo
-    img.alt = place.title
-    imgDiv.appendChild(img)
-
-    // Unit's SuperHost: Checks if unit is a super host, adds the label
-    if (place.superHost) {
-      hostDiv.textContent = 'SUPER HOST'
-      unitDiv.appendChild(hostDiv)
-    }
-
-    // Unit type: Creates and sets the Unit type
-    place.type ? typeDiv.textContent = place.type : ''
-
-    // Unit beds: Checks if data exist - add total bed into unit details
-    place.beds ? bedDiv.textContent = place.beds : ''
-
-    // Unit's rate: creates and adds rating
-    if(place.rating){
-      rateDiv.textContent = place.rating
-
-      // Add star icon
-      let ratingIcon = document.createElement('span')
-      ratingIcon.classList.add('material-icons')
-      ratingIcon.textContent = 'star'
-      rateDiv.insertBefore(ratingIcon, rateDiv.firstChild)
-    }
-
-    // Unit: Creates and appends childs under Unit div and add class 'unit'
-    unitDiv.append(typeDiv, bedDiv, rateDiv)
-
-    // Unit Details: Creates and appends the children of Details
-    detailsDiv.append(unitDiv)
-
-    // Unit Title: Creates the description/title of the unit
-    place.title ?  descDiv.textContent = place.title : ''
-
-    // Item Unit: wrapper
-    mainDiv.append(imgDiv, detailsDiv, descDiv)
+    mainDiv = setContentElement('div', '', 'list-wrapper')
+    mainDiv.append(featImg, detailsDiv)
 
     // IMPROVE: #locations.innerHTML will get replaced with the html in every iteration
-    document.querySelector("#locations").appendChild(mainDiv);
+    document.querySelector('#locations').appendChild(mainDiv)
   });
+
 }
 
 function setCountry(country) {
   document.querySelector("#country").innerHTML = "Stays in " + country;
 }
 
+function setContentElement(el, content, className){
+  let contentElement = document.createElement(el)
+  contentElement.classList.add(className)
+  contentElement.textContent = content
+  return contentElement
+}
+
+function setFeaturedImage(src, alt, className){
+  let imageWrapper = setContentElement('div', '', className)
+
+  // Creates the image element
+  let imageElement = document.createElement('img')
+  imageElement.src = src
+  imageElement.alt = alt
+
+  // sets it the Image Wrapper
+  imageWrapper.appendChild(imageElement)
+  return imageWrapper;
+}
+
+function setIconElement(icon){
+  let iconElement = document.createElement('span')
+  iconElement.classList.add('material-icons')
+  iconElement.textContent = icon
+  return iconElement
+}
+
 // IMPROVE: try to use https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
-renderList();
+window.addEventListener('load', renderList)

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 const DB_URL = "//raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json";
-=======
-const DB_URL =
-  "://raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json";
->>>>>>> ea7ad41 (Linting)
 
 async function fetchLocations() {
   return fetch(DB_URL)

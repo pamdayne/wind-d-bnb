@@ -1,27 +1,27 @@
-const DB_LOCAL = "stays.json";
+<<<<<<< HEAD
+const DB_URL = "//raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json";
+=======
 const DB_URL =
-  "https://raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json";
+  "://raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json";
+>>>>>>> ea7ad41 (Linting)
 
 async function fetchLocations() {
   return fetch(DB_URL)
-    .then(function(resp){return resp.json()})
-    .then(function(json){
-       return json;
-    }).catch(function(error){
+    .then(function (resp) { return resp.json() })
+    .then(function (json) {
+      return json;
+    }).catch(function (error) {
       console.error(error);
     })
 }
 
-  // HOW CAN WE WRITE THIS BETTER? :D Anymore I can improve on?
+// HOW CAN WE WRITE THIS BETTER? :D Anymore I can improve on?
 async function renderList() {
   let places = await fetchLocations()
-
-  // HOW CAN WE WRITE THIS BETTER?
-  // Is this the better way of doing it?
   let featImg, typeDiv, hostDiv, rateDiv, bedDiv, descDiv, unitDiv, detailsDiv, mainDiv = {}
 
   places.forEach(location => {
-    const { photo, title, superHost, type, beds, rating} = location;
+    const { photo, title, superHost, type, beds, rating } = location;
 
     // The place's image
     featImg = setFeaturedImage(photo, title, 'photo')
@@ -37,6 +37,7 @@ async function renderList() {
     unitDiv = setContentElement('div', '', 'unit')
     unitDiv.append(hostDiv, typeDiv, bedDiv, rateDiv)
 
+    // Add unit title
     descDiv = setContentElement('div', title, 'short-desc')
 
     detailsDiv = setContentElement('div', '', 'details')
@@ -48,21 +49,20 @@ async function renderList() {
     // IMPROVE: #locations.innerHTML will get replaced with the html in every iteration
     document.querySelector('#locations').appendChild(mainDiv)
   });
-
 }
 
 function setCountry(country) {
   document.querySelector("#country").innerHTML = "Stays in " + country;
 }
 
-function setContentElement(el, content, className){
+function setContentElement(el, content, className) {
   let contentElement = document.createElement(el)
   contentElement.classList.add(className)
   contentElement.textContent = content
   return contentElement
 }
 
-function setFeaturedImage(src, alt, className){
+function setFeaturedImage(src, alt, className) {
   let imageWrapper = setContentElement('div', '', className)
 
   // Creates the image element
@@ -75,11 +75,12 @@ function setFeaturedImage(src, alt, className){
   return imageWrapper;
 }
 
-function setIconElement(icon){
+function setIconElement(icon) {
   let iconElement = document.createElement('span')
   iconElement.classList.add('material-icons')
   iconElement.textContent = icon
   return iconElement
 }
 
+// Renders on load
 window.addEventListener('load', renderList)

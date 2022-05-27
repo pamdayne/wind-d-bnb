@@ -1,112 +1,90 @@
 html {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	min-height: 100%;
-	padding: 1rem;
+  background-color: $color-light;
+  font-family: $font-main;
+  min-height: 100%;
+  padding: 1rem;
 
-	background-color: $color-light;
-
-	font-family: $font-main;
-
-	// IMPROVE: Maybe don't use Camel case for class name
-	&.maxWidth {
-		max-width: 1200px;
-		height: 100%;
-		margin: 0 auto;
-	}
+  &.max-width {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+  }
 }
 
 header {
-	form {
-		border-radius: .7rem;
-		background-color: #fff;
+  form {
+    border-radius: .7rem;
+    background-color: #fff;
 
-		@include flex(space-between, center);
+    @include flex(space-between, center);
 
-		* {
-			height: 3rem;
-			margin: .7rem;
-			padding: 0;
-
-			border: 0;
-		}
-	}
+    * {
+      height: 3rem;
+      margin: .7rem;
+      padding: 0;
+      border: 0;
+    }
+  }
 }
 
 .row {
-	@include flex(space-between, center);
+  @include flex(space-between, center);
 }
 
 .lists {
-	display: grid;
+  display: grid;
+  gap: 3%;
+  grid-template-columns: repeat(3, 31%);
 
-	gap: 3%;
-	grid-template-columns: repeat(3, 31%);
+  .photo {
+    position: relative;
+    overflow: hidden;
+    max-height: 250px;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    aspect-ratio: 16 / 10;
 
-	.photo {
-		position: relative;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      position: absolute;
+      bottom: 0;
+    }
+  }
 
-		overflow: hidden;
+  .details {
+    .unit {
+      margin-bottom: .5rem;
+      padding: .3rem 0;
 
-		max-height: 250px;
-		margin-bottom: 1rem;
+      @include flex(space-between, center);
 
-		border-radius: 1rem;
+      .host {
+        padding: .5rem;
+        text-transform: uppercase;
+        border: 1px solid $color-dark;
+        border-radius: .8em;
+        font-size: 80%;
+      }
 
-		aspect-ratio: 16 / 10;
+      .type,
+      .bed {
+        color: dimgrey;
+      }
+    }
 
-		img {
-			position: absolute;
-			bottom: 0;
-
-			display: block;
-
-			width: 100%;
-			height: auto;
-		}
-	}
-
-	.details {
-		.unit {
-			margin-bottom: .5rem;
-			padding: .3rem 0;
-
-			@include flex(space-between, center);
-
-			.host {
-				padding: .5rem;
-
-				text-transform: uppercase;
-
-				border: 1px solid $color-dark;
-				border-radius: .8em;
-
-				font-size: 80%;
-			}
-
-			// IMPROVE: https://github.com/chris-pearce/css-guidelines#heavy_check_mark-good
-			/*
-				.type,
-				.bed {
-					...
-				}
-			*/
-			.type, .bed {
-				color: dimgrey;
-			}
-		}
-
-		.score {
-			@include flex('', center)
-		}
-	}
+    .score {
+      @include flex('', center)
+    }
+  }
 }
 
-
 footer {
-	display: block;
-
-	margin-top: 2rem;
+  display: block;
+  margin-top: 2rem;
 }

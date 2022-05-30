@@ -1,31 +1,31 @@
 @mixin flex ($justify, $alignment) {
-	display: flex;
-	justify-content: $justify;
-	align-items: $alignment;
+  display: flex;
+  justify-content: $justify;
+  align-items: $alignment;
 }
 
 @mixin breakpoint($size) {
-	@if $size=='sm' {
-		@media screen and (min-width: $screensize-sm) {
-			@content
-		}
-	}
+  @if $size=='sm' {
+    @media screen and (min-width: $screensize-sm) {
+      @content
+    }
+  }
 
-	@else if $size=='md' {
-		@media screen and (min-width: $screensize-md) {
-			@content
-		}
-	}
+  @else if $size=='md' {
+    @media screen and (min-width: $screensize-md) {
+      @content
+    }
+  }
 
-	@else if $size=='lg' {
-		@media screen and (min-width: $screensize-lg) {
-			@content
-		}
-	}
+  @else if $size=='lg' {
+    @media screen and (min-width: $screensize-lg) {
+      @content
+    }
+  }
 
-	@else if $size=='xl' {
-		@media screen and (min-width: $screensize-xl) {
-			@content
-		}
-	}
+  @else if $size=='xl' {
+    @media screen and (min-width: $screensize-xl) {
+      @content
+    }
+  }
 }

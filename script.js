@@ -10,55 +10,49 @@ async function fetchLocations() {
     })
 }
 
-// HOW CAN WE WRITE THIS BETTER? :D Anymore I can improve on?
 async function renderList() {
   let places = await fetchLocations()
-  let featImg, typeDiv, hostDiv, rateDiv, bedDiv, descDiv, unitDiv, detailsDiv, mainDiv = {}
+  let listWrapper = setContentElement('div', '', 'list-wrapper')
 
   places.forEach(location => {
     const { photo, title, superHost, type, beds, rating } = location;
 
-    // The place's image
-    featImg = setFeaturedImage(photo, title, 'photo')
+    // Create inner sections
+    const featImg = getFeaturedImage(photo, title, 'photo')
+    const unitType = getUnitType(type)
+    const totalBeds = getTotalBeds(beds)
+    const rate = getRating(rating)
+    const shortDesc = getDescription(title)
 
-    // Unit's details
-    hostDiv = superHost ? setContentElement('div', 'SUPER HOST', 'host') : ''
-    bedDiv = beds ? setContentElement('div', '.' + beds + ' beds', 'bed') : ''
-    typeDiv = setContentElement('div', type, 'type')
-    typeDiv.append(bedDiv)
-    rateDiv = setContentElement('div', rating, 'rating')
-    rateDiv.insertBefore(setIconElement('star'), rateDiv.firstChild)
+    // Assemble unit details
+    const unitDiv = setContentElement('div', '', 'unit')
+    unitDiv.append(superHost != false ? getSuperHost(superHost) : '', unitType, beds != null ? getTotalBeds(beds) : '', rate)
 
-    // Wraps the details
-    unitDiv = setContentElement('div', '', 'unit')
-    unitDiv.append(hostDiv, typeDiv, rateDiv)
+    // Assemble the whole one item
+    const itemWrapper = setContentElement('div', '', 'item-wrapper')
+    itemWrapper.append(featImg, unitDiv, shortDesc)
 
-    // Add unit title
-    descDiv = setContentElement('div', title, 'short-desc')
-
-    detailsDiv = setContentElement('div', '', 'details')
-    detailsDiv.append(unitDiv, descDiv)
-
-    mainDiv = setContentElement('div', '', 'list-wrapper')
-    mainDiv.append(featImg, detailsDiv)
-
-    // IMPROVE: #locations.innerHTML will get replaced with the html in every iteration
-    document.querySelector('#locations').appendChild(mainDiv)
+    // Wrap all items in a wrapper
+    listWrapper.appendChild(itemWrapper)
   });
+  document.querySelector('#locations').appendChild(listWrapper)
 }
 
-function setCountry(country) {
-  document.querySelector("#country").innerHTML = "Stays in " + country;
-}
-
-function setContentElement(el, content, className) {
+function setContentElement(el, content = null, className = null) {
   let contentElement = document.createElement(el)
-  contentElement.classList.add(className)
+  className != null ? contentElement.classList.add(className): null
   contentElement.textContent = content
   return contentElement
 }
 
-function setFeaturedImage(src, alt, className) {
+function getIconElement(icon) {
+  let iconElement = document.createElement('span')
+  iconElement.classList.add('material-icons')
+  iconElement.textContent = icon
+  return iconElement
+}
+
+function getFeaturedImage(src, alt, className = '') {
   let imageWrapper = setContentElement('div', '', className)
 
   // Creates the image element
@@ -71,11 +65,32 @@ function setFeaturedImage(src, alt, className) {
   return imageWrapper;
 }
 
-function setIconElement(icon) {
-  let iconElement = document.createElement('span')
-  iconElement.classList.add('material-icons')
-  iconElement.textContent = icon
-  return iconElement
+function getUnitType(type) {
+  return setContentElement('div', type, 'type')
+}
+
+function getSuperHost(host){
+  return setContentElement('div', 'SUPER HOST', 'host')
+}
+
+function getTotalBeds(beds) {
+  return setContentElement('div', beds + ' beds', 'beds')
+}
+
+function getRating(rating){
+  let html = setContentElement('div', rating, 'rating')
+  html.insertBefore(getIconElement('star'), html.firstChild)
+  return html
+}
+
+function getDescription(title){
+  let html = setContentElement('div', '', 'short-desc')
+  html.insertBefore(setContentElement('p', title), html.firstChild)
+  return html
+}
+
+function getCountry(country) {
+  document.querySelector("#country").innerHTML = "Stays in " + country;
 }
 
 // Renders on load

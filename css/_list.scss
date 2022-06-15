@@ -1,11 +1,15 @@
 .list {
   display: block;
+  &-wrapper {
+    @include breakpoint(md) {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-  @include breakpoint(md) {
-    display: flex;
-    flex-wrap: wrap;
   }
+}
 
+.item {
   &-wrapper {
     margin-bottom: 2rem;
 
@@ -13,37 +17,35 @@
       width: calc(calc(100% / 3) - 2rem);
       margin: 1rem;
     }
-  }
 
-  .photo {
-    position: relative;
-    overflow: hidden;
-    max-height: 250px;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-    aspect-ratio: 16 / 10;
+    .photo {
+      position: relative;
+      overflow: hidden;
+      max-height: 250px;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      aspect-ratio: 16 / 10;
 
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      position: absolute;
-      bottom: 0;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+      }
     }
-  }
 
-  .details {
     .unit {
-      margin-bottom: .5rem;
-      padding: .3rem 0;
+      margin-bottom: 0.5rem;
+      padding: 0.3rem 0;
 
       @include flex(space-between, center);
 
       .host {
-        padding: .2rem .5rem;
+        padding: 0.2rem 0.5rem;
         text-transform: uppercase;
         border: 1px solid $color-dark;
-        border-radius: .8em;
+        border-radius: 0.8em;
         font-size: 80%;
       }
 
@@ -61,7 +63,7 @@
     }
 
     .score {
-      @include flex('', center)
+      @include flex('', center);
     }
   }
 }

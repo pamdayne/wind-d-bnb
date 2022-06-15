@@ -17,7 +17,7 @@ async function renderList() {
   places.forEach(location => {
     const { photo, title, superHost, type, beds, rating } = location;
 
-    // Create inner sections
+    // Create inner sections of the location item
     const featImg = getFeaturedImage(photo, title, 'photo')
     const unitType = getUnitType(type)
     const totalBeds = getTotalBeds(beds)

@@ -35,11 +35,11 @@ header {
   form {
     @include flex(space-evenly, center);
     width: 100%;
-    border-radius: .7rem;
+    border-radius: 0.7rem;
     background-color: $color-white;
     padding-block: 1rem;
     margin-block: 1rem;
-    box-shadow: 0 0.1rem .5rem $color-lighter;
+    box-shadow: 0 0.1rem 0.5rem $color-lighter;
 
     @include breakpoint(md) {
       padding-block: 0;

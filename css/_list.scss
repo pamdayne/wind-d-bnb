@@ -1,5 +1,6 @@
 .list {
   display: block;
+
   &-wrapper {
     @include breakpoint(md) {
       display: flex;
@@ -15,7 +16,7 @@
 
     @include breakpoint(md) {
       margin: 1rem;
-      width: calc(calc(100% / 3) - 2rem);
+      width: calc($single-column-width - 2rem);
     }
 
     .photo {

@@ -33,17 +33,17 @@ body {
 
 header {
   form {
-    @include flex(space-evenly, center);
-    width: 100%;
-    border-radius: 0.7rem;
     background-color: $color-white;
-    padding-block: 1rem;
-    margin-block: 1rem;
+    border-radius: 0.7rem;
     box-shadow: 0 0.1rem 0.5rem $color-lighter;
+    margin-block: 1rem;
+    padding-block: 1rem;
+    width: 100%;
+    @include flex(space-evenly, center);
 
     @include breakpoint(md) {
-      padding-block: 0;
       margin-block: 1rem;
+      padding-block: 0;
     }
 
     select,

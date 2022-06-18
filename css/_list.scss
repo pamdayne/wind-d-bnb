@@ -14,24 +14,24 @@
     margin-bottom: 2rem;
 
     @include breakpoint(md) {
-      width: calc(calc(100% / 3) - 2rem);
       margin: 1rem;
+      width: calc(calc(100% / 3) - 2rem);
     }
 
     .photo {
-      position: relative;
-      overflow: hidden;
-      max-height: 250px;
-      margin-bottom: 1rem;
-      border-radius: 1rem;
       aspect-ratio: 16 / 10;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      max-height: 250px;
+      overflow: hidden;
+      position: relative;
 
       img {
+        bottom: 0;
         display: block;
-        width: 100%;
         height: auto;
         position: absolute;
-        bottom: 0;
+        width: 100%;
       }
     }
 
@@ -42,22 +42,22 @@
       @include flex(space-between, center);
 
       .host {
-        padding: 0.2rem 0.5rem;
-        text-transform: uppercase;
         border: 1px solid $color-dark;
         border-radius: 0.8em;
         font-size: 80%;
+        padding: 0.2rem 0.5rem;
+        text-transform: uppercase;
       }
 
       .type {
-        display: inline-flex;
         color: $color-dark;
+        display: inline-flex;
       }
 
       .rating {
         .material-icons {
-          vertical-align: bottom;
           color: salmon;
+          vertical-align: bottom;
         }
       }
     }

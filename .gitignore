@@ -1,6 +1,6 @@
 # IGNORE THESE
-*.css.map
 node_modules
 package-lock.json
 dist/
 .parcel-cache
+*.map

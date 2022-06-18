@@ -7,25 +7,25 @@
 @mixin breakpoint($size) {
   @if $size=='sm' {
     @media screen and (min-width: $screensize-sm) {
-      @content
-    ;}
+      @content ;
+    }
   }
 
   @else if $size=='md' {
     @media screen and (min-width: $screensize-md) {
-      @content
-    ;}
+      @content ;
+    }
   }
 
   @else if $size=='lg' {
     @media screen and (min-width: $screensize-lg) {
-      @content
-    ;}
+      @content ;
+    }
   }
 
   @else if $size=='xl' {
     @media screen and (min-width: $screensize-xl) {
-      @content
-    ;}
+      @content ;
+    }
   }
 }

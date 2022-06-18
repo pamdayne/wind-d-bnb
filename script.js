@@ -1,6 +1,6 @@
 const DB_URL = "//raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json";
 
-async function fetchLocations() {
+function fetchLocations() {
   return fetch(DB_URL)
     .then(function (resp) { return resp.json() })
     .then(function (json) {
@@ -40,7 +40,7 @@ async function renderList() {
 
 function setContentElement(el, content = null, className = null) {
   let contentElement = document.createElement(el)
-  className != null ? contentElement.classList.add(className): null
+  className != null ? contentElement.classList.add(className) : null
   contentElement.textContent = content
   return contentElement
 }
@@ -69,7 +69,7 @@ function getUnitType(type) {
   return setContentElement('div', type, 'type')
 }
 
-function getSuperHost(host){
+function getSuperHost(host) {
   return setContentElement('div', 'SUPER HOST', 'host')
 }
 
@@ -77,13 +77,13 @@ function getTotalBeds(beds) {
   return setContentElement('div', beds + ' beds', 'beds')
 }
 
-function getRating(rating){
+function getRating(rating) {
   let html = setContentElement('div', rating, 'rating')
   html.insertBefore(getIconElement('star'), html.firstChild)
   return html
 }
 
-function getDescription(title){
+function getDescription(title) {
   let html = setContentElement('div', '', 'short-desc')
   html.insertBefore(setContentElement('p', title), html.firstChild)
   return html

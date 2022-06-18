@@ -15,7 +15,7 @@
 
     @include breakpoint(md) {
       margin: 1rem;
-      width: calc($single-column-width - 2rem);
+      width: calc($l-single-column-width - 2rem);
     }
 
     .photo {
@@ -42,7 +42,7 @@
       @include flex(space-between, center);
 
       .host {
-        border: 1px solid $color-dark;
+        border: 1px solid $g-color-dark;
         border-radius: 0.8em;
         font-size: 80%;
         padding: 0.2rem 0.5rem;
@@ -50,7 +50,7 @@
       }
 
       .type {
-        color: $color-dark;
+        color: $g-color-dark;
         display: inline-flex;
       }
 

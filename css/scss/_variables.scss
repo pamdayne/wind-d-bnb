@@ -1,17 +1,23 @@
-// IMPROVE: namespace your variable - https://github.com/chris-pearce/css-guidelines#global-settings
-$color-dark: #636363;
-$color-darker: #2b2b2b;
-$color-light: #bebebe;
-$color-lighter: #ededed;
-$color-white: #fff;
-$color-black: #000;
-$font-main: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+// About variable namespace - https://github.com/chris-pearce/css-guidelines#global-settings
+// ===================================
+// Global colours
+// ===================================
+$g-color-black: #000;
+$g-color-dark: #636363;
+$g-color-darker: #2b2b2b;
+$g-color-light: #bebebe;
+$g-color-lighter: #ededed;
+$g-color-white: #fff;
+$g-font-main: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+// ===================================
+// Layouts
+// ===================================
 // Screensizes
-$screensize-sm: 320px;
-$screensize-md: 768px;
-$screensize-lg: 1024px;
-$screensize-xl: 1400px;
+$l-screensize-sm: 320px;
+$l-screensize-md: 768px;
+$l-screensize-xl: 1400px;
+$l-screensize-lg: 1024px;
 
 // Column width
-$single-column-width: calc(100% / 3);
+$l-single-column-width: calc(100% / 3);

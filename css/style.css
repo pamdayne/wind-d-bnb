@@ -1,3 +1,4 @@
+/* SCSS folder */
 html {
   height: 100%;
 }
@@ -133,6 +134,7 @@ footer {
   justify-content: "";
 }
 
+/* Extra assets */
 .material-icons {
   direction: ltr;
   /* Preferred icon size */
@@ -154,4 +156,6 @@ footer {
   text-transform: none;
   white-space: nowrap;
   word-wrap: normal;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=material-icons.css.map *//*# sourceMappingURL=style.css.map */

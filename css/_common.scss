@@ -28,7 +28,6 @@ body {
   .col {
     display: block;
   }
-
 }
 
 header {
@@ -67,5 +66,6 @@ header {
 
 footer {
   display: block;
-  margin-top: 2rem;
+  padding-block: 2rem;
+  text-align: center;
 }

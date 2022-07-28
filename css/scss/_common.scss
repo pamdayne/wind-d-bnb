@@ -1,0 +1,71 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $g-color-white;
+  font-family: $g-font-main;
+  min-height: 100%;
+  padding: 1rem;
+
+  &.max-width {
+    height: 100%;
+    margin: 0 auto;
+
+    @include breakpoint(md) {
+      max-width: 1200px;
+    }
+  }
+}
+
+.row {
+  display: block;
+
+  @include breakpoint(md) {
+    @include flex(space-between, center);
+  }
+
+  .col {
+    display: block;
+  }
+}
+
+header {
+  form {
+    background-color: $g-color-white;
+    border-radius: 0.7rem;
+    box-shadow: 0 0.1rem 0.5rem $g-color-lighter;
+    margin-block: 1rem;
+    padding-block: 1rem;
+    width: 100%;
+    @include flex(space-evenly, center);
+
+    @include breakpoint(md) {
+      margin-block: 1rem;
+      padding-block: 0;
+    }
+
+    select,
+    input {
+      border: 0;
+      padding: 0;
+
+      @include breakpoint(md) {
+        height: 3rem;
+        margin: 0.7rem;
+      }
+    }
+
+    input {
+      &[type='submit'] {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+footer {
+  display: block;
+  padding-block: 2rem;
+  text-align: center;
+}

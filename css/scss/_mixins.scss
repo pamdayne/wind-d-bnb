@@ -1,0 +1,31 @@
+@mixin flex ($justify, $alignment) {
+  align-items: $alignment;
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin breakpoint($size) {
+  @if $size=='sm' {
+    @media screen and (min-width: $l-screensize-sm) {
+      @content ;
+    }
+  }
+
+  @else if $size=='md' {
+    @media screen and (min-width: $l-screensize-md) {
+      @content ;
+    }
+  }
+
+  @else if $size=='lg' {
+    @media screen and (min-width: $l-screensize-lg) {
+      @content ;
+    }
+  }
+
+  @else if $size=='xl' {
+    @media screen and (min-width: $l-screensize-xl) {
+      @content ;
+    }
+  }
+}

@@ -1,4 +1,8 @@
-@import 'variables';
-@import 'mixins';
-@import 'common';
+/* SCSS folder */
+@import 'scss/variables';
+@import 'scss/mixins';
+@import 'scss/common';
+@import 'scss/list';
+
+/* Extra assets */
 @import 'material-icons';

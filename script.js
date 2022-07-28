@@ -1,49 +1,97 @@
-const db_local = 'stays.json'
-const db_url = 'https://raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json'
+const DB_URL = "//raw.githubusercontent.com/pamdayne/wind-d-bnb/main/db/stays.json";
 
-async function fetchLocations() {
-	try {
-		let resp = await fetch(db_url)
-		return await resp.json()
-	} catch (err) {
-		console.error(err)
-	}
+function fetchLocations() {
+  return fetch(DB_URL)
+    .then(function (resp) { return resp.json() })
+    .then(function (json) {
+      return json;
+    }).catch(function (error) {
+      console.error(error);
+    })
 }
 
 async function renderList() {
-	let places = await fetchLocations()
-	let html = ''
+  let places = await fetchLocations()
+  let listWrapper = setContentElement('div', '', 'list-wrapper')
 
-	places.forEach(place => {
-		setCountry(place.country)
+  places.forEach(location => {
+    const { photo, title, superHost, type, beds, rating } = location;
 
-		html += `<div class="lists-wrapper">
-								<div class="photo">
-									<img
-										src="${place.photo}"
-										alt="${place.title}" />
-								</div>
-								<div class="details">
-									<div class="unit">
-									${place.superHost != false ? '<div class="host"> Super Host</div>' : ''}
-										<div class="type">${place.type}</div >
-										<div class="bed">
-										${place.beds != null ? '<span class="total">' + place.beds + ' beds</span > ' : ''}
-										</div >
-										<div class="score">
-										<span class="material-icons">star</span>
-										<span class="rating">${place.rating}</span>
-										</div>
-									</div>
-									<div class="short-desc">${place.title}</div>
-								</div >
-							</div > `
-		document.querySelector('#locations').innerHTML = html
-	})
+    // Create inner sections of the location item
+    const featImg = getFeaturedImage(photo, title, 'photo')
+    const unitType = getUnitType(type)
+    const totalBeds = getTotalBeds(beds)
+    const rate = getRating(rating)
+    const shortDesc = getDescription(title)
+
+    // Assemble unit details
+    const unitDiv = setContentElement('div', '', 'unit')
+    unitDiv.append(superHost != false ? getSuperHost(superHost) : '', unitType, beds != null ? getTotalBeds(beds) : '', rate)
+
+    // Assemble the whole one item
+    const itemWrapper = setContentElement('div', '', 'item-wrapper')
+    itemWrapper.append(featImg, unitDiv, shortDesc)
+
+    // Wrap all items in a wrapper
+    listWrapper.appendChild(itemWrapper)
+  });
+  document.querySelector('#locations').appendChild(listWrapper)
 }
 
-function setCountry(country) {
-	document.querySelector("#country").innerHTML = 'Stays in ' + country
+function setContentElement(el, content = null, className = null) {
+  let contentElement = document.createElement(el)
+  className != null ? contentElement.classList.add(className) : null
+  contentElement.textContent = content
+  return contentElement
 }
 
-renderList()
+function getIconElement(icon) {
+  let iconElement = document.createElement('span')
+  iconElement.classList.add('material-icons')
+  iconElement.textContent = icon
+  return iconElement
+}
+
+function getFeaturedImage(src, alt, className = '') {
+  let imageWrapper = setContentElement('div', '', className)
+
+  // Creates the image element
+  let imageElement = document.createElement('img')
+  imageElement.src = src
+  imageElement.alt = alt
+
+  // sets it the Image Wrapper
+  imageWrapper.appendChild(imageElement)
+  return imageWrapper;
+}
+
+function getUnitType(type) {
+  return setContentElement('div', type, 'type')
+}
+
+function getSuperHost(host) {
+  return setContentElement('div', 'SUPER HOST', 'host')
+}
+
+function getTotalBeds(beds) {
+  return setContentElement('div', beds + ' beds', 'beds')
+}
+
+function getRating(rating) {
+  let html = setContentElement('div', rating, 'rating')
+  html.insertBefore(getIconElement('star'), html.firstChild)
+  return html
+}
+
+function getDescription(title) {
+  let html = setContentElement('div', '', 'short-desc')
+  html.insertBefore(setContentElement('p', title), html.firstChild)
+  return html
+}
+
+function getCountry(country) {
+  document.querySelector("#country").innerHTML = "Stays in " + country;
+}
+
+// Renders on load
+window.addEventListener('load', renderList)
